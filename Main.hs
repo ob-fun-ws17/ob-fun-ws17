@@ -1,6 +1,5 @@
 module Main where
 
-
 main :: IO ()
 main = putStrLn "Hello World!"
 
@@ -61,3 +60,7 @@ data Identity a = Identity a
 
 instance Eq a => Eq (Identity a) where
   (==) (Identity v) (Identity v') = v == v'
+
+sum' :: [Int] -> Int
+sum' [] = 0
+sum' (x:xs) = x + sum' xs
