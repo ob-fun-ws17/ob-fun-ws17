@@ -61,6 +61,26 @@ data Identity a = Identity a
 instance Eq a => Eq (Identity a) where
   (==) (Identity v) (Identity v') = v == v'
 
-sum' :: [Int] -> Int
-sum' [] = 0
-sum' (x:xs) = x + sum' xs
+data Point = Point
+  { getX :: Int
+  , getY :: Int
+  }
+  deriving Show
+
+data TrivialT = TrivialInt Int | TrivialDouble Double
+
+data Point3 = Point3
+  { getXY :: Point
+  , getZ :: Int
+  }
+  deriving Show
+
+
+-- getX, getY :: Point -> Int
+-- getX (Point x _) = x
+-- getY (Point _ y) = y
+
+newtype Grade = Grade Int
+
+goodEnough :: Grade -> Bool
+goodEnough (Grade g) = g < 5
