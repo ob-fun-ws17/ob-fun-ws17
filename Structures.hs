@@ -1,5 +1,8 @@
 module Structures where
 
+-- import Control.Monad.Reader
+import Data.Char (toUpper)
+
 -- instance Monoid Maybe where
 --   mempty = Nothing
 --   Nothing `mappend` x = x
@@ -27,3 +30,13 @@ instance Monoid StudentGroups where
   mempty = StudentGroups 0 []
   (StudentGroups sizeX xs) `mappend` (StudentGroups sizeY ys) =
     mkStudentGroups (max sizeX sizeY) (Students (sum xs + sum ys))
+
+-- f = do
+--   fmap (map toUpper) getLine
+--   --let sTR = map toUpper str
+--   --putStrLn str
+g :: Int -> Double -> String -> String
+g i d s = show i ++ " " ++ s ++ ": " ++ show d
+
+f :: IO ()
+f = getLine >>= putStrLn
